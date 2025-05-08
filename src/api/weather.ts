@@ -42,7 +42,15 @@ class WeatherAPI {
     const url = this.createUrl(`${API_CONFIG.GEO}/reverse`, {
       lat: lat.toString(),
       lon: lon.toString(),
-     limit:1,
+      limit: 1,
+    });
+    return this.fetchData<GeocodingData[]>(url);
+  }
+
+  async searchLocation(query: string): Promise<GeocodingData[]> {
+    const url = this.createUrl(`${API_CONFIG.GEO}/direct`, {
+      q: query,
+      limit: 5,
     });
     return this.fetchData<GeocodingData[]>(url);
   }

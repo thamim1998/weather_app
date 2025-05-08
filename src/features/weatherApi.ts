@@ -3,10 +3,15 @@ import { createApi } from "@reduxjs/toolkit/query/react";
 import type { Coordinates, ForecastData, GeocodingData, WeatherData } from "@/api/types";
 import { weatherAPI } from "@/api/weather";
 
-// Custom base query that uses your existing weatherAPI methods
-const customBaseQuery = async (args: { endpoint: keyof typeof weatherAPI; coordinates: Coordinates }) => {
+// Custom base query that uses weatherAPI methods
+const customBaseQuery = async (args: { endpoint: keyof typeof weatherAPI; coordinates?: Coordinates; query?: string }) => {
   try {
-    const data = await weatherAPI[args.endpoint](args.coordinates);
+    let data;
+    if (args.endpoint === "searchLocation") {
+      data = await weatherAPI[args.endpoint](args.query!);
+    } else {
+      data = await weatherAPI[args.endpoint](args.coordinates!);
+    }
     return { data };
   } catch (error) {
     return { error };
@@ -37,11 +42,18 @@ export const weatherApi = createApi({
         coordinates,
       }),
     }),
+    searchLocation: builder.query<GeocodingData[], string>({
+      query: (query) => ({
+        endpoint: "searchLocation",
+        query
+      })
+    })
   }),
 });
 
 export const {
   useGetCurrentWeatherQuery,
   useGetCurrentForecastQuery,
-  useGetReverseGeocodeQuery
+  useGetReverseGeocodeQuery,
+  useSearchLocationQuery
 } = weatherApi;
