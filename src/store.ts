@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { weatherApi } from "./features/weatherApi";
 import  searchHistoryReducer  from "./features/searchHistorySlice";
-
+ 
 export const store = configureStore({
   reducer: {
     [weatherApi.reducerPath]: weatherApi.reducer,
