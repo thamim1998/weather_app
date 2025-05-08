@@ -2,8 +2,6 @@ import { useTheme } from '@/context/theme-provider';
 import { Moon, Sun } from 'lucide-react';
 import { Link } from 'react-router-dom'
 import CitySearch from './CitySearch';
-import darkImage from '../assets/dark-logo.jpg'
-import whiteImage from '../assets/white-logo.jpg'
 
 const Header = () => {
  const {theme, setTheme} =  useTheme();
