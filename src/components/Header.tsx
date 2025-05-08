@@ -10,7 +10,7 @@ const Header = () => {
     <header className='sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur py-2 supports-[backdrop-filter]:bg-background/60'>
       <div className='container mx-auto flex h-16 items-center justify-between px-4'>
         <Link to={"/"}>
-        <h1 className='font-bold text-2xl'>Climatics</h1>
+        <h1 className='font-bold text-2xl'>Climatics 01</h1>
         </Link>
         <div className='flex gap-4'>
           {/* search */}
