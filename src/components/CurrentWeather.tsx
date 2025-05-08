@@ -3,13 +3,15 @@ import { Card, CardContent } from "./ui/card";
 import { ArrowDown, ArrowUp, Droplets, Wind } from "lucide-react";
 
 const CurrentWeather = ({ data, locationName }: { data: WeatherData; locationName?: GeocodingData }) => {
+  
   const {
     weather: [currentWeather],
     main: { temp, feels_like, temp_min, temp_max, humidity },
     wind: { speed },
   } = data;
 
-  const formatTemp = (temp: number) => `${Math.round(temp)}`;
+  
+  const formatTemp = (temp: number) => `${Math.round(temp)}°`;
 
   return (
     <Card className="overflow-hidden">
