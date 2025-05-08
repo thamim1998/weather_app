@@ -16,6 +16,8 @@ const customBaseQuery = async (args: { endpoint: keyof typeof weatherAPI; coordi
 export const weatherApi = createApi({
   reducerPath: "weatherApi",
   baseQuery: customBaseQuery,
+  keepUnusedDataFor: 60 * 60, // Keep unused data for 1 hour
+  refetchOnMountOrArgChange: 60 * 5, // Refetch if cache is older than 
   endpoints: (builder) => ({
     getCurrentWeather: builder.query<WeatherData, Coordinates>({
       query: (coordinates) => ({
@@ -29,7 +31,7 @@ export const weatherApi = createApi({
         coordinates,
       }),
     }),
-    getReverseGeocode: builder.query<GeocodingData, Coordinates>({
+    getReverseGeocode: builder.query<GeocodingData[], Coordinates>({
       query: (coordinates) => ({
         endpoint: "reverseGeocode",
         coordinates,
