@@ -24,8 +24,15 @@ jobs:
           lfs: false
       - name: Install OIDC Client from Core Package
         run: npm install @actions/core@1.6.0 @actions/http-client
+
       - name: Setup environment variable for Vite
         run: echo "VITE_OPENWEATHER_API_KEY=${{ secrets.VITE_OPENWEATHER_API_KEY }}" >> $GITHUB_ENV
+
+      - name: Build the app
+        run: npm run build
+
+      - name: Verify VITE_OPENWEATHER_API_KEY
+        run: echo "VITE_OPENWEATHER_API_KEY=$VITE_OPENWEATHER_API_KEY"
 
       - name: Get Id Token
         uses: actions/github-script@v6

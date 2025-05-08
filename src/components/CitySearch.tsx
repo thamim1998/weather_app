@@ -88,7 +88,6 @@ const CitySearch = () => {
             </CommandGroup>
           )}
 
-
           {locations && locations.length > 0 && (
             <CommandGroup heading="Suggestions">
               {isLoading && (
