@@ -18,7 +18,6 @@ const HourlyTemperature = ({data} : HourlyTemperatureProps) => {
     <Card className='flex-1'>
   <CardHeader>
     <CardTitle>Today's Temperature</CardTitle>
-    <CardDescription>Card Description</CardDescription>
   </CardHeader>
   <CardContent>
    <div className='h-[200px] w-full'>

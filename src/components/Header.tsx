@@ -2,6 +2,8 @@ import { useTheme } from '@/context/theme-provider';
 import { Moon, Sun } from 'lucide-react';
 import { Link } from 'react-router-dom'
 import CitySearch from './CitySearch';
+import darkImage from '../assets/dark-logo.jpg'
+import whiteImage from '../assets/white-logo.jpg'
 
 const Header = () => {
  const {theme, setTheme} =  useTheme();
@@ -10,7 +12,7 @@ const Header = () => {
     <header className='sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur py-2 supports-[backdrop-filter]:bg-background/60'>
       <div className='container mx-auto flex h-16 items-center justify-between px-4'>
         <Link to={"/"}>
-        <img src="https://www.creativefabrica.com/wp-content/uploads/2021/04/17/Climate-SVG-Typography-Graphics-10977515-1-312x208.png" alt="Klimate Logo" className='h-14'/>
+        <h1 className='font-bold text-2xl'>Climatics</h1>
         </Link>
         <div className='flex gap-4'>
           {/* search */}

@@ -1,7 +1,7 @@
 import {  useState } from "react";
 import { CommandDialog, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "./ui/command";
 import { Button } from "./ui/button";
-import { Loader2, Search, XCircle } from "lucide-react";
+import { Clock, Loader2, Search, XCircle } from "lucide-react";
 import { useCustomSearchLocationQuery } from "@/hooks/useWeather";
 import { CommandSeparator } from "cmdk";
 import { useNavigate } from "react-router-dom";
@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "@/store";
 import { SearchHistoryItem } from "@/api/types";
 import { addToHistory, clearHistory } from "@/features/searchHistorySlice";
+import { format } from "date-fns/format";
 
 const CitySearch = () => {
   const [open, setOpen] = useState(false);
@@ -72,11 +73,21 @@ const CitySearch = () => {
                 <XCircle className="h-4 w-4" />
                 Clear
               </Button>
-              {history.length > 0 && history.map((city) => <CommandItem key={city.lon}>{city.name}</CommandItem>)}
+              {history.length > 0 && history.map((city) => 
+              <CommandItem key={city.lon}>
+                <Clock className="mr-2 h-4 w-4 text-muted-foreground"/>{city.name}
+              {city.state && (
+                <span className="text-sm text-muted-foreground">,{city.state}</span>
+              )}
+                <span className="text-sm text-muted-foreground">, {city.country}</span>
+                <span className="ml-auto text-xs text-muted-foreground">
+                  {format(city.searchedAt,"MMM d, h:mm a")}
+                   </span>
+              </CommandItem>)}
+              <CommandSeparator />
             </CommandGroup>
           )}
 
-          <CommandSeparator />
 
           {locations && locations.length > 0 && (
             <CommandGroup heading="Suggestions">

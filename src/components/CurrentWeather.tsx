@@ -19,9 +19,9 @@ const CurrentWeather = ({ data, locationName }: { data: WeatherData; locationNam
         <div className="grid gap-6 md:grid-cols-2">
           <div className="space-y-4">
             <div className="space-y-2">
-              <div className="flex items-center">
+              <div className="flex items-baseline">
                 <h2 className="text-2xl font-bold tracking-tight">{locationName?.name}</h2>
-                {locationName?.state && <span className="text-muted-foreground">, {locationName.state}</span>}
+                {locationName?.state && <span className="text-muted-foreground"> , {locationName.state}</span>}
               </div>
               <p className="text-sm text-muted-foreground">{locationName?.country}</p>
             </div>
