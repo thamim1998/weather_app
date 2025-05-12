@@ -2,6 +2,7 @@ import { API_CONFIG } from "./config";
 import { Coordinates, ForecastData, GeocodingData, WeatherData } from "./types";
 
 class WeatherAPI {
+
   private createUrl(endpoint: string, params: Record<string, string | number>) {
     const searchParams = new URLSearchParams({
       appid: API_CONFIG.API_KEY,
@@ -11,7 +12,6 @@ class WeatherAPI {
     return `${endpoint}?${searchParams.toString()} `;
   }
 
-  //Dont know what is the type of the fetch data, So using <T>
   private async fetchData<T>(url: string): Promise<T> {
     const response = await fetch(url);
     if (!response.ok) {

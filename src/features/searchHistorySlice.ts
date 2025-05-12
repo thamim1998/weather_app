@@ -22,6 +22,7 @@ const searchHistorySlice = createSlice({
 
       return newHistory;
     },
+    
     clearHistory: () => {
       return [];
     },
