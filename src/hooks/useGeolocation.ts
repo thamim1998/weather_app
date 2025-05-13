@@ -15,6 +15,7 @@ export function useGeolocation() {
   });
 
   const getLocation = () => {
+    
     setLocationData((prev) => ({ ...prev, isLoading: true, error: null }));
 
     if (!navigator.geolocation) {
@@ -69,13 +70,12 @@ export function useGeolocation() {
     );
   };
 
-  // Get location on component mount
   useEffect(() => {
     getLocation();
   }, []);
 
   return {
     ...locationData,
-    getLocation, // Expose method to manually refresh location
+    getLocation,
   };
 }

@@ -2,6 +2,7 @@ import { API_CONFIG } from "./config";
 import { Coordinates, ForecastData, GeocodingData, WeatherData } from "./types";
 
 class WeatherAPI {
+
   private createUrl(endpoint: string, params: Record<string, string | number>) {
     const searchParams = new URLSearchParams({
       appid: API_CONFIG.API_KEY,
@@ -9,15 +10,17 @@ class WeatherAPI {
     });
 
     return `${endpoint}?${searchParams.toString()} `;
+    //http:weahterAPu?apiid=122334?lat=122332&lon=12123234
   }
 
-  //Dont know what is the type of the fetch data, So using <T>
   private async fetchData<T>(url: string): Promise<T> {
     const response = await fetch(url);
     if (!response.ok) {
       throw new Error(`Weather API Error: ${response.statusText}`);
     }
     return response.json();
+
+  // return {temp:21"C}
   }
 
   async getCurrentWeather({ lat, lon }: Coordinates): Promise<WeatherData> {

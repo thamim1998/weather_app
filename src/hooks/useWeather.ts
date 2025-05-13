@@ -1,4 +1,3 @@
-// src/hooks/useWeather.ts
 import { useGetCurrentForecastQuery, useGetCurrentWeatherQuery, useGetReverseGeocodeQuery, useSearchLocationQuery } from "../features/weatherApi";
 import type { Coordinates } from "@/api/types";
 

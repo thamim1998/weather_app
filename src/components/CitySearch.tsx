@@ -37,7 +37,7 @@ const CitySearch = () => {
 
     setOpen(false);
 
-    navigate(`/city/${name}??lat=${lat}&lon=${lon}`);
+    navigate(`/city/${name}?lat=${lat}&lon=${lon}`);
 
     const searchItem: Omit<SearchHistoryItem, "id" | "searchedAt"> = {
       query: name,
@@ -87,7 +87,6 @@ const CitySearch = () => {
               <CommandSeparator />
             </CommandGroup>
           )}
-
 
           {locations && locations.length > 0 && (
             <CommandGroup heading="Suggestions">

@@ -9,7 +9,6 @@ const CurrentWeather = ({ data, locationName }: { data: WeatherData; locationNam
     main: { temp, feels_like, temp_min, temp_max, humidity },
     wind: { speed },
   } = data;
-
   
   const formatTemp = (temp: number) => `${Math.round(temp)}°`;
 

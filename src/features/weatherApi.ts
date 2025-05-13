@@ -1,4 +1,3 @@
-// src/api/weatherApi.ts
 import { createApi } from "@reduxjs/toolkit/query/react";
 import type { Coordinates, ForecastData, GeocodingData, WeatherData } from "@/api/types";
 import { weatherAPI } from "@/api/weather";
@@ -20,9 +19,9 @@ const customBaseQuery = async (args: { endpoint: keyof typeof weatherAPI; coordi
 
 export const weatherApi = createApi({
   reducerPath: "weatherApi",
-  baseQuery: customBaseQuery,
-  keepUnusedDataFor: 60 * 60, // Keep unused data for 1 hour
-  refetchOnMountOrArgChange: 60 * 5, // Refetch if cache is older than 
+  baseQuery: customBaseQuery, //baseurl
+  keepUnusedDataFor: 60 * 60, 
+  refetchOnMountOrArgChange: 60 * 60,
   endpoints: (builder) => ({
     getCurrentWeather: builder.query<WeatherData, Coordinates>({
       query: (coordinates) => ({
