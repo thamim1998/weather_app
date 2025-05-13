@@ -7,7 +7,10 @@ A modern weather forecast app built with:
 - 🧩 **ShadCN/UI**
 - 📦 **RTK Query** (Redux Toolkit)
 - ☁️ **OpenWeatherMap API**
-- 🚀 Deployed via **Azure Static Web Apps**
+- 🚀 Deployed via **Azure Web Apps**
+
+🔗 **Live Demo**: [https://victorious-ocean-01f176003.6.azurestaticapps.net](https://victorious-ocean-01f176003.6.azurestaticapps.net)
+
 
 ---
 
