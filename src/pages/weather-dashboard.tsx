@@ -36,7 +36,7 @@ const WeatherDashboard = () => {
         <AlertTitle>Location Error</AlertTitle>
         <AlertDescription className="flex flex-col gap-4">
           <p>{locationError}</p>
-          <Button onClick={getLocation} variant={"outline"} className="w-fit">
+          <Button onClick={getLocation} variant={"outline"} className="w-fit cursor-pointer ">
             <MapPin className="mr-2 h-4 w-4" />
             Enable Location
           </Button>
@@ -94,7 +94,7 @@ const WeatherDashboard = () => {
           {weatherQuery.isLoading ? (
             <WeatherSkeleton />
           ) : weatherQuery.error ? (
-            <p>Eror</p>
+            <p>Error</p>
           ) : weatherQuery.data ? (
             <CurrentWeather data={weatherQuery.data} locationName={locationName} />
           ) : null}
@@ -103,7 +103,7 @@ const WeatherDashboard = () => {
           {forecastQuery.isLoading ? (
             <WeatherSkeleton />
           ) : forecastQuery.error ? (
-            <p>Eror</p>
+            <p>Error</p>
           ) : forecastQuery.data ? (
             <HourlyTemperature data={forecastQuery.data}/>
           ) : null}
@@ -113,7 +113,7 @@ const WeatherDashboard = () => {
           {forecastQuery.isLoading ? (
             <WeatherSkeleton />
           ) : weatherQuery.error ? (
-            <p>Eror</p>
+            <p>Error</p>
           ) : weatherQuery.data ? (
             <WeatherDetails data={weatherQuery.data}/>
           ) : null}
@@ -122,7 +122,7 @@ const WeatherDashboard = () => {
           {forecastQuery.isLoading ? (
             <WeatherSkeleton />
           ) : forecastQuery.error ? (
-            <p>Eror</p>
+            <p>Error</p>
           ) : forecastQuery.data ? (
             <WeatherForecast data={forecastQuery.data}/>
           ) : null}

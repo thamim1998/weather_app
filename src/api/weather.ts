@@ -10,6 +10,7 @@ class WeatherAPI {
     });
 
     return `${endpoint}?${searchParams.toString()} `;
+    //http:weahterAPu?apiid=122334?lat=122332&lon=12123234
   }
 
   private async fetchData<T>(url: string): Promise<T> {
@@ -18,6 +19,8 @@ class WeatherAPI {
       throw new Error(`Weather API Error: ${response.statusText}`);
     }
     return response.json();
+
+  // return {temp:21"C}
   }
 
   async getCurrentWeather({ lat, lon }: Coordinates): Promise<WeatherData> {
