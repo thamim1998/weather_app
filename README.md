@@ -9,7 +9,7 @@ A modern weather forecast app built with:
 - ☁️ **OpenWeatherMap API**
 - 🚀 Deployed via **Azure Web Apps**
 
-🔗 **Live Demo**: [https://victorious-ocean-01f176003.6.azurestaticapps.net](https://victorious-ocean-01f176003.6.azurestaticapps.net)
+<!-- 🔗 **Live Demo**: [https://victorious-ocean-01f176003.6.azurestaticapps.net](https://victorious-ocean-01f176003.6.azurestaticapps.net) -->
 
 
 ---
